@@ -63,6 +63,30 @@ Select an option (1-6):
 
 ## Installation & Build
 
+### Build using Docker
+
+velocache is available as a lightweight pre-built container on Docker Hub.
+
+1. Pull the image from Docker Hub    
+    ```bash
+    docker pull tecnolgd/velocache:latest
+    ```
+2. Run with Persistent Storage
+    ```bash
+    docker run -it --rm -v $(pwd)/assets:/app/assets velocache:latest
+    ```
+3. Build Locally(Optional) 
+    ```bash
+    docker build -t velocache:local .
+    ```
+
+> [!NOTE]       
+> 1. The image is built using Multi-stage compilation(zero build tools inside runtime container) using an alpine base with an image size of ~4.3 Mb.
+> The *Run with persistent Storage* is done to make sure the cache states(contents in 'assets/cache_data.txt`) are preserved across container restarts.
+> Currently, the docker build has no option of `Runtime Configuration of Capacity` and hence it defaults to **3**. 
+
+### Build from source
+
 > [!IMPORTANT]    
 > Ensure you have `g++` installed( `make` recommended). 
 ```bash
