@@ -73,7 +73,7 @@ velocache is available as a lightweight pre-built container on Docker Hub.
     ```
 2. Run with Persistent Storage
     ```bash
-    docker run -it --rm -v $(pwd)/assets:/app/assets velocache:latest
+    docker run -it --rm -v $(pwd)./assets:/app/assets tecnolgd/velocache:latest
     ```
 3. Build Locally(Optional) 
     ```bash
