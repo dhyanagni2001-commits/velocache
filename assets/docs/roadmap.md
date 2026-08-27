@@ -18,6 +18,7 @@
   - `Clear Cache` function to clear the entire cache
   - File corruption handling while loading data into the cache
   - Runtime Cache capacity flag 
+  - Docker build support
 
 - ◴ **In Progress:** 
   - Robustness improvements and edge-case handling

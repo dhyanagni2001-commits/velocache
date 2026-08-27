@@ -63,6 +63,31 @@ Select an option (1-6):
 
 ## Installation & Build
 
+### Build using Docker
+
+velocache is available as a lightweight pre-built container on Docker Hub.
+
+1. Pull the image from Docker Hub    
+    ```bash
+    docker pull tecnolgd/velocache:latest
+    ```
+2. Run with Persistent Storage
+    ```bash
+    docker run -it --rm -v $(pwd)/assets:/app/assets tecnolgd/velocache:latest
+    ```
+3. Build Locally(Optional) 
+    ```bash
+    docker build -t velocache:local .
+    ```
+
+> [!NOTE]       
+> 1. The image is built using Multi-stage compilation(zero build tools inside runtime container) using an alpine base with an image size of ~4.3 Mb.
+> The *Run with persistent Storage* is done to make sure the cache states(contents in `assets/cache_data.txt`) are preserved across container restarts.
+> Currently, the docker build has no option of `Runtime Configuration of Capacity` and hence it defaults to **3**.
+> There is NO command for running the benchmark script as of now.
+
+### Build from source
+
 > [!IMPORTANT]    
 > Ensure you have `g++` installed( `make` recommended). 
 ```bash
@@ -76,63 +101,64 @@ cd velocache
 
 From the project directory, run the following commands:    
 
-### Using make (recommended) 
-
-- Build **both** the server and the benchmark tool
-```bash
-make
-```
-or
-```bash
-make all
-```
-
-- Build and run individualy      
-    - **The Server**:     
-    ```bash
-    make v_server
-    ```       
-    - Run with a custom cache size:
-    ```bash
-    ./build/v_server --capacity 10 # '-c' can also be used in place of '--capacity
-    ```
-    or
-    - Run directly
-    ```bash
-    ./build/v_server # Capacity defaults to 3
-    ```
+- Using make (recommended)        
     
-    - **The Benchmark Tool**:
-    ```bash
-    make v_bench
-    ```
-- Clean object files:
-```bash
-make clean
-```
+    - Build **both** the server and the benchmark tool
+        ```bash
+        make
+        ```
+        or
+        ```bash
+        make all
+        ```
 
-### Manual Build and Run
+    - Build and run individualy      
+        - **The Server**:     
+            ```bash
+            make v_server
+            ```       
+            - Run with a custom cache size:
+                ```bash
+                ./build/v_server --capacity 10 # '-c' can also be used in place of '--capacity
+                ```
+            or
+            - Run directly
+                ```bash
+                ./build/v_server # Capacity defaults to 3
+                ```
+    
+        - **The Benchmark Tool**:
+            ```bash
+            make v_bench
+            ```
+    - Clean object files:
+        ```bash
+        make clean
+        ```
 
-1. The Server     
-- Build:      
-    ```bash
-    g++ src/cache.cpp src/storage.cpp apps/server.cpp utils/input_validation.cpp -I./include -Wall -o build/v_server  
-    ```      
-- Run:         
-    ```bash   
-    ./build/v_server
-    ```      
+- Manual Build and Run         
 
-2. The Benchmark Tool     
-- Build:       
-    ```bash
-    g++ src/cache.cpp utils/metrics.cpp tests/benchmark.cpp -I./include -Wall -o build/v_bench
-    ```     
-- Run:     
-    ```bash
-    ./build/v_bench
-    ```
-    >For more details, check [Benchmark usage](assets/docs/usage.md#the-benchmark-tool)
+    - The Server     
+        - Build:      
+            ```bash
+            g++ src/cache.cpp src/storage.cpp apps/server.cpp utils/input_validation.cpp -I./include -Wall -o build/v_server  
+            ```      
+        - Run:         
+            ```bash   
+            ./build/v_server
+            ```      
+
+    - The Benchmark Tool     
+        - Build:       
+            ```bash
+            g++ src/cache.cpp utils/metrics.cpp tests/benchmark.cpp -I./include -Wall -o build/v_bench
+            ```     
+        - Run:     
+            ```bash
+            ./build/v_bench
+            ```
+            >For more details, check [Benchmark usage](assets/docs/usage.md#the-benchmark-tool)
+
 
 ## [Contributing](CONTRIBUTING.md#contributing-to-velocache)
 
