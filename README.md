@@ -73,7 +73,7 @@ velocache is available as a lightweight pre-built container on Docker Hub.
     ```
 2. Run with Persistent Storage
     ```bash
-    docker run -it --rm -v $(pwd)./assets:/app/assets tecnolgd/velocache:latest
+    docker run -it --rm -v $(pwd)/assets:/app/assets tecnolgd/velocache:latest
     ```
 3. Build Locally(Optional) 
     ```bash
@@ -82,7 +82,7 @@ velocache is available as a lightweight pre-built container on Docker Hub.
 
 > [!NOTE]       
 > 1. The image is built using Multi-stage compilation(zero build tools inside runtime container) using an alpine base with an image size of ~4.3 Mb.
-> The *Run with persistent Storage* is done to make sure the cache states(contents in 'assets/cache_data.txt`) are preserved across container restarts.
+> The *Run with persistent Storage* is done to make sure the cache states(contents in `assets/cache_data.txt`) are preserved across container restarts.
 > Currently, the docker build has no option of `Runtime Configuration of Capacity` and hence it defaults to **3**.
 > There is NO command for running the benchmark script as of now.
 
