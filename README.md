@@ -138,7 +138,7 @@ From the project directory, run the following commands:
 
 - Manual Build and Run         
 
-    1. The Server     
+    - The Server     
         - Build:      
             ```bash
             g++ src/cache.cpp src/storage.cpp apps/server.cpp utils/input_validation.cpp -I./include -Wall -o build/v_server  
@@ -148,7 +148,7 @@ From the project directory, run the following commands:
             ./build/v_server
             ```      
 
-    2. The Benchmark Tool     
+    - The Benchmark Tool     
         - Build:       
             ```bash
             g++ src/cache.cpp utils/metrics.cpp tests/benchmark.cpp -I./include -Wall -o build/v_bench
