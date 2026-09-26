@@ -54,6 +54,10 @@ void Cache::putValue(const std::string& key, const std::string& value) {
         return;
     }
 
+    if (max_size == 0) { //a zero-capacity cache can't store anything, so there's nothing to evict either
+        return;
+    }
+
     Node* newNode = new Node{key, value, nullptr, nullptr}; //for new node creation
 
     if (cacheMap.size() >= max_size) { //delete from end of the DLL
