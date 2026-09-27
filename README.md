@@ -136,6 +136,12 @@ From the project directory, run the following commands:
         make clean
         ```
 
+    - Run the unit tests (requires `cmake` — `brew install cmake` on macOS):
+        ```bash
+        make test
+        ```
+        > GoogleTest is fetched automatically on first run (into `cmake-build/`, gitignored) — no manual/system install needed. See [tests/test_cache.cpp](tests/test_cache.cpp).
+
 - Manual Build and Run         
 
     - The Server     

@@ -24,4 +24,14 @@ clean:
 	rm -rf $(BUILD_DIR)/*
 	@echo "Cleaned $(BUILD_DIR) directory."
 
-.PHONY: all clean # used to treat 'all' and 'clean' as commands and not files
+# 'cmake-build' is a separate directory from '$(BUILD_DIR)' because it holds
+# CMake's own cache plus the fetched GoogleTest sources (see CMakeLists.txt),
+# which the Makefile-driven build doesn't need or know about.
+TEST_BUILD_DIR = cmake-build
+
+test:
+	cmake -S . -B $(TEST_BUILD_DIR) -DCMAKE_BUILD_TYPE=Release
+	cmake --build $(TEST_BUILD_DIR)
+	ctest --test-dir $(TEST_BUILD_DIR) --output-on-failure
+
+.PHONY: all clean test # used to treat 'all', 'clean' and 'test' as commands and not files
