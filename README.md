@@ -12,7 +12,7 @@
 </div>
 <hr>
 
-> velocache is a high-performance, in-memory LRU (Least Recently Used) cache engine designed for $O(1)$ operations and reliable state persistence.
+<p align = "center"> A high-performance, in-memory LRU (Least Recently Used) cache engine designed for $O(1)$ operations and reliable state persistence</p>
 ---
 
 
@@ -136,7 +136,12 @@ From the project directory, run the following commands:
         make clean
         ```
 
-    - Run the unit tests (requires `cmake` — `brew install cmake` on macOS):
+    - Run the unit tests      
+        > [!NOTE]    
+        > Requires: `cmake` — `brew install cmake` on macOS
+                    `sudo apt install cmake` on Linux
+                    `winget install Kitware.CMake` on Windows
+
         ```bash
         make test
         ```
@@ -172,8 +177,7 @@ From the project directory, run the following commands:
 A huge thanks to the developers contributing to velocache.     
 
 - [nvphungdev](https://github.com/nvphungdev)
+- [dhyanagni2001-commits](https://github.com/dhyanagni2001-commits)
 
-## Author & License
-
-- **Author:** tecnolgd   
-- **License:** [MIT License](LICENSE.md)
+## License   
+MIT
