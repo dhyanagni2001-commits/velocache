@@ -1,4 +1,3 @@
-
 <h1 style="font-size: 60px; font-family: roboto;" align= "center">velocache</h1>
 
 <div align = "center">
@@ -10,10 +9,10 @@
 </a>
 <a href = "#documentation"><img src = "https://img.shields.io/badge/docs-available-1a1a1a?style=flat-square" alt = "Docs"></a>
 </div>
+
 <hr>
 
 <p align = "center"> A high-performance, in-memory LRU (Least Recently Used) cache engine designed for $O(1)$ operations and reliable state persistence</p>
----
 
 
 ## Sample Menu
@@ -136,11 +135,12 @@ From the project directory, run the following commands:
         make clean
         ```
 
-    - Run the unit tests      
-        > [!NOTE]    
-        > Requires: `cmake` — `brew install cmake` on macOS
-                    `sudo apt install cmake` on Linux
-                    `winget install Kitware.CMake` on Windows
+    - Run the unit tests        
+        > Requires `cmake`:
+        >
+        > - `brew install cmake` on macOS      
+        > - `sudo apt install cmake` on Linux      
+        > - `winget install Kitware.CMake` on Windows
 
         ```bash
         make test
